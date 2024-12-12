@@ -1,16 +1,23 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Start from "@/components/StartView.vue";
-import CardDeck from "@/components/CardDeck.vue";
-// import GameButton from './components/GameButton.vue';
+
+/* 공통 컴포넌트 예시 */
+// import Black from "@/components/Black.vue";
+import White from "@/components/White.vue";
 
 const routes = [
   {
-    path: "/",
-    component: Start,
-  },
-  {
-    path: "/cardDeck",
-    component: CardDeck,
+    path: '/',
+    component: White,
+    children: [
+      {
+        path: "/",
+        component: () => import("@/views/Main/index.vue"),
+      },
+      {
+        path: "/cardDeck",
+        component: () => import("@/views/CardDeck/index.vue"),
+      },
+    ],
   },
 ];
 const router = createRouter({

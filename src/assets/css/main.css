@@ -1,0 +1,188 @@
+/* Main */
+@import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&display=swap');
+html, body {
+width: 100%;
+height: 100%;
+margin: 0;
+overflow: hidden;
+}
+#app {
+font-family: Avenir, Helvetica, Arial, sans-serif;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+text-align: center;
+color: #2c3e50;
+width: 100vw;
+height: 100vh;
+position: relative;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.cardDeck {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+.gameBox {
+position: relative;
+margin: 0 auto;
+width: 80%;
+height: 80%;
+border-radius: 20px;
+overflow: hidden;
+}
+.gameBoxIn {
+width: 100%;
+height: 100%;
+background: url('@/assets/images/gameBg.jpg') no-repeat left center/cover;
+animation: close 1s linear 6.5s forwards;
+}
+.ornament {
+position: absolute;
+left: 3%;
+width: 100%;
+max-width: 600px;
+height: 100vh;
+}
+.ornament img {
+position: absolute;
+width: 30%;
+max-width: 300px;
+}
+.ornament .bell {
+left: 10%;
+top: 10%;
+animation: hide 1s linear 3s forwards;
+}
+.ornament .snowman {
+left: 65%;
+top: 30%;
+animation: hide 1s linear 4s forwards;
+}
+.ornament .present {
+left: 30%;
+top: 40%;
+animation: hide 1s linear 5s forwards;
+}
+.bubble {
+font-family: "Mountains of Christmas", serif;
+font-weight: 700;
+font-style: normal;
+width: 600px;
+height: 300px;
+background: url('@/assets/images/bubble.png') no-repeat center center/contain;
+position: absolute;
+right: -20%;
+top: 40%;
+transform: translateY(-50%);
+display: flex;
+justify-content: center;
+align-items: center;
+opacity: 0;
+animation: bubbleShow 1s ease-in-out 7.5s forwards;
+}
+.bubble > p {
+font-size: 70px;
+line-height: 62px;
+color: #fd654e;
+}
+.bubble > p > span {
+color: #078f71;
+}
+@keyframes hide {
+0% {opacity: 1;}
+100% {opacity: 0;}
+}
+@keyframes close {
+0% {transform: translate(0, 0) scale(1);}
+100% {transform: translate(15%, 0) scale(1.35)}
+}
+@keyframes bubbleShow {
+0% {transform: translate(0, 0) scale(0); opacity: 0;}
+100% {transform: translate(90%, -20%) scale(1); opacity: 1;}
+}
+
+/* CardDeck */
+h3 {
+  margin: 40px 0 0;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}
+.cardList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.cardList > li {
+   width: 120px;
+   height: 180px;
+   overflow: hidden;
+   position: relative;
+}
+.card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: ease-in-out 600ms;
+  cursor: pointer;
+}
+.flip .card,
+.active .card {
+    transform: rotateY(180deg);
+}
+/* .card:hover {
+    transform: rotateY(180deg);
+} */
+.card > div {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+}
+.cardImg {
+  width: 100%;
+}
+.cardFront {
+  background: #fa5a5a url('@/assets/images/cardBack3.jpg') no-repeat center center/cover;
+  height: 100%;
+}
+.cardBack {
+  background: #016839;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  transform: rotateY(180deg);
+  /* transform: rotateY(180deg); */
+}
+/* .cardBack:hover {
+  transform: rotateY(180deg);
+} */
+
+.white {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+.black {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+}

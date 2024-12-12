@@ -15,7 +15,9 @@
       >
         <div class="card">
           <div class="cardFront"></div>
-          <div class="cardBack" :style="{ backgroundImage: 'url(/images/' + f + '.png)' }"></div>
+          <div class="cardBack">
+            <img class="cardImg" :src="require('@/assets/images/' + f + '.png')" />
+          </div>
         </div>
       </li>
     </ul>
@@ -118,71 +120,3 @@ export default {
 
 
 </script>
-
-<style>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-.cardList {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.cardList > li {
-   width: 120px;
-   height: 180px;
-   overflow: hidden;
-   position: relative;
-}
-.card {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: ease-in-out 600ms;
-  cursor: pointer;
-}
-.flip .card,
-.active .card {
-    transform: rotateY(180deg);
-}
-/* .card:hover {
-    transform: rotateY(180deg);
-} */
-.card > div {
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  height: 100%;
-  position: absolute;
-  overflow: hidden;
-  width: 100%;
-  border-radius: 8px;
-}
-.cardFront {
-  background: #fa5a5a url(/public/images/cardBack3.jpg) no-repeat center center/cover;
-  height: 100%;
-}
-.cardBack {
-  background: #016839;
-  height: 100%;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
-  transform: rotateY(180deg);
-  /* transform: rotateY(180deg); */
-}
-/* .cardBack:hover {
-  transform: rotateY(180deg);
-} */
-</style>
